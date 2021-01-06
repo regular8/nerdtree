@@ -47,27 +47,29 @@ endfunction
 function! s:Path.cacheDisplayString() abort
     let self.cachedDisplayString = g:NERDTreeNodeDelimiter . self.getLastPathComponent(1)
 
-    if self.isExecutable
-        let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . '*'
-    endif
-
-    let self._bookmarkNames = []
-    for i in g:NERDTreeBookmark.Bookmarks()
-        if i.path.equals(self)
-            call add(self._bookmarkNames, i.name)
-        endif
-    endfor
-    if !empty(self._bookmarkNames) && g:NERDTreeMarkBookmarks ==# 1
-        let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . ' {' . join(self._bookmarkNames) . '}'
-    endif
+    " Don't need that stuff
+    " if self.isExecutable
+    "     let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . '*'
+    " endif
+    "
+    " let self._bookmarkNames = []
+    " for i in g:NERDTreeBookmark.Bookmarks()
+    "     if i.path.equals(self)
+    "         call add(self._bookmarkNames, i.name)
+    "     endif
+    " endfor
+    " if !empty(self._bookmarkNames) && g:NERDTreeMarkBookmarks ==# 1
+    "     let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . ' {' . join(self._bookmarkNames) . '}'
+    " endif
 
     if self.isSymLink
         let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . ' -> ' . self.symLinkDest
     endif
 
-    if self.isReadOnly
-        let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . ' ['.g:NERDTreeGlyphReadOnly.']'
-    endif
+    " Don't need that stuff
+    " if self.isReadOnly
+    "     let self.cachedDisplayString = self.addDelimiter(self.cachedDisplayString) . ' ['.g:NERDTreeGlyphReadOnly.']'
+    " endif    
 endfunction
 
 " FUNCTION: Path.addDelimiter() {{{1
