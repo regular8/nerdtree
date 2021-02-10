@@ -396,7 +396,7 @@ function! s:Path.getSortKey()
             let self._sortKey = [self.getSortOrderIndex()] + metadata
         endif
 
-        let path = self.getLastPathComponent(1)
+        let path = self.getLastPathComponent(0)
         if !g:NERDTreeSortHiddenFirst
             let path = substitute(path, '^[._]', '', '')
         endif
